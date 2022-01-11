@@ -1,0 +1,15 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(31, 30, 30, 0.782);
+  color: rgb(233, 231, 231);
+}
+h1 {
+  font-weight: 600;
+  font-size: 260px;
+  font-family: "Nanum Pen Script", cursive;
+}
