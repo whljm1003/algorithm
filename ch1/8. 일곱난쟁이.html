@@ -7,11 +7,45 @@
     <script>
       function solution(arr) {
         let answer = arr;
+        let sum = arr.reduce((acc, cul) => acc + cul, 0); /* 140 */
+        let restNum = sum - 100; /* 40 */
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] + arr[j] === restNum) {
+              // j가 i보다 뒤에 있는 인덱스이기에 j먼저 삭제 해줌으로써
+              // 배열의 인덱스가 변환되어도 i의 인덱스 값은 변하지 않아
+              // 내가 원하는 값을 삭제할 수 있다.
+              arr.splice(j, 1);
+              arr.splice(i, 1);
+            }
+          }
+        }
         return answer;
       }
+      /*  
+        내가 푼 문제
+        arr.forEach((e) => {
+          arr.forEach((j) => {
+            if (e !== j && e + j === 40) {
+              answer = arr.filter((k) => k !== e && k !== j);
+              return answer;
+            }
+          });
+        });
+        문제점:
+          1.forEach문을 돌려서 j를 0번째 인덱스부터 시작하여 반복을 쓸데없이 많이하고 if문의 조건이 지저분해졌음
+          2.splice로 i번째 인덱스를 계속 먼저 삭제 하여 배열 인덱스가 원하는 값으로 나오지 않고 자꾸 변환되어 filter문을 또 사용
+            (splice 삭제값을 바꿔주면 됨)
+        */
 
-      let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+      let arr = [20, 7, 23, 19, 10, 15, 8, 13, 25];
       console.log(solution(arr));
     </script>
   </body>
 </html>
+<!-- 
+  가짜 난쟁이 수 2개를 제거해서 총합이 100이 되도록 구하는 문제.
+  1. arr 총합을에서 -100을 한 나머지 수를 파악 (40)
+  2. arr 의 2수를 더했을 때 숫자 40을 찾기
+  3. 그 찾은 2수를 arr에서 제거
+ -->
