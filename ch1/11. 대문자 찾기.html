@@ -4,15 +4,34 @@
     <title>출력결과</title>
   </head>
   <body>
+    <!-- for of문 -->
     <script>
       function solution(s) {
         let answer = 0;
-
+        for (let i of s) {
+          if (i !== i.toLowerCase()) answer++;
+          /*    
+          아스키 charCodeAt
+          대문자 : 65~ 90, 소문자 : 97 ~ 122 
+          let num = i.charCodeAt());
+          if(num>=65 && num <=90) answer++;
+          */
+        }
         return answer;
       }
 
-      let str = "KoreaTimeGood";
-      console.log(solution(str));
+      let str1 = "KoreaTimeGood";
+      console.log(solution(str1));
+    </script>
+    <!-- 정규 표현식 -->
+    <script>
+      function solution(s) {
+        let answer = 0;
+        answer = s.match(/[A-Z]/gm).length;
+        return answer;
+      }
+      let str2 = "KoreaTimeGood";
+      console.log(solution(str2));
     </script>
   </body>
 </html>
