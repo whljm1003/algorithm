@@ -6,7 +6,12 @@
   <body>
     <script>
       function solution(s) {
-        let answer = "";
+        let answer = s[0];
+        for (let i of s) {
+          if (answer.length < i.length) {
+            answer = i;
+          }
+        }
         return answer;
       }
       let str = ["teacher", "time", "student", "beautiful", "good"];

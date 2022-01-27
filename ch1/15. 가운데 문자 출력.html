@@ -7,6 +7,17 @@
     <script>
       function solution(s) {
         let answer;
+        let midI = Math.floor(s.length / 2);
+        if (s.length % 2 === 0) {
+          answer = s.slice(midI - 1, midI + 1);
+          // answer = s.substring(midI - 1, midI + 1);
+          // answer = s.substr(midI - 1, 2);
+        } else {
+          answer = s[midI];
+          // answer = s.substring(midI, midI + 1);
+          // answer = s.substr(midI, 1);
+        }
+
         return answer;
       }
       console.log(solution("study"));
