@@ -6,9 +6,29 @@
   <body>
     <script>
       function solution(s) {
+        // indexOf()
         let answer = "";
+        for (let i = 0; i < s.length; i++) {
+          console.log(s[i], i, s.indexOf(s[i]));
+          if (s.indexOf(s[i]) === i) answer += s[i];
+        }
         return answer;
+        // set()
+        // let dupArr = s.split("");
+        // let set = new Set(dupArr);
+        // return [...set].join("");
+
+        // includes()
+        //   let dupArr = s.split("");
+        //   let arr = [];
+        //   for (let i of dupArr) {
+        //     if (!arr.includes(i)) {
+        //       arr.push(i);
+        //     }
+        //   }
+        //   return arr.join("");
       }
+
       console.log(solution("ksekkset"));
     </script>
   </body>
