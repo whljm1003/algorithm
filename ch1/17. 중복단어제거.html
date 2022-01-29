@@ -6,7 +6,14 @@
   <body>
     <script>
       function solution(s) {
-        let answer;
+        // 매개변수로 들어가는 함수 => 고차함수
+        // 인자로 전달되는 함수 => 콜백함수
+        let answer = [];
+        s.filter(
+          (e, i) =>
+            // filter함수 내부가 아닌 callback함수 내부
+            s.indexOf(e) === i && answer.push(e)
+        );
         return answer;
       }
       let str = ["good", "time", "good", "time", "student"];
