@@ -6,8 +6,14 @@
   <body>
     <script>
       function solution(arr) {
-        let answer;
-
+        let answer = 1;
+        let maxNum = arr[0];
+        for (let i of arr) {
+          if (maxNum < i) {
+            answer++;
+            maxNum = i;
+          }
+        }
         return answer;
       }
 
