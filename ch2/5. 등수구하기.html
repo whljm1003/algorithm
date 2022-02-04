@@ -6,8 +6,11 @@
   <body>
     <script>
       function solution(arr) {
-        let answer;
-
+        let answer = "";
+        let sortArr = arr.slice().sort((a, b) => b - a);
+        for (let i = 0; i < arr.length; i++) {
+          answer += sortArr.indexOf(arr[i]) + 1 + " ";
+        }
         return answer;
       }
 
@@ -16,3 +19,12 @@
     </script>
   </body>
 </html>
+
+<!-- 
+  조건1. 배열에서 가장 큰수가 1등이고 가장 작은 수가 꼴등이다.
+  조건2. 만약 2명이 같은 점수이면 공동 1등이 되고 그다음 순서는 3등이 된다.
+
+  나만의 풀이) sort문으로 배열을 내림 차순으로 정렬을 한 뒤 indexOf를 활용해 
+  arr과 sortArr를 비교해서 해당 값이 있는 index를 추출한다.
+  indexOf를 값을 추출하면 조건2가 충족된다.
+-->

@@ -6,8 +6,13 @@
   <body>
     <script>
       function solution(arr) {
-        let answer;
+        let answer = 0,
+          count = 0;
 
+        for (let i of arr) {
+          if (i === 0) count = 0;
+          else count++, (answer += count);
+        }
         return answer;
       }
 
@@ -16,3 +21,12 @@
     </script>
   </body>
 </html>
+
+<!-- 
+  조건1. 1=맞는 점수, 0=틀린점수
+  조건2. 맞는 점수가 연속이 될 경우 개수만큼 점수가 올라감 
+        ex)1,1,1 => 1+2+3 = 6점이 됨
+  나만의 풀이) 반복문을 돌려서 증가 변수(count)를 선언하고 i가 0이면 count가 0이 되고
+  그렇지 않으면 count는 계속 증가되고 그 증가된 값을 answer에 저장한다.
+  
+ -->
