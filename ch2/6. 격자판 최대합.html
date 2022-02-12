@@ -5,9 +5,37 @@
   </head>
   <body>
     <script>
+      // arr[행][열]
+      // arr[i][i] => Slash
+      // arr[n-i-0][i] => backSlash
       function solution(arr) {
-        let answer;
+        let n = arr.length;
+        let answer = 0,
+          rowMax = 0,
+          columnMax = 0,
+          columnSum = 0,
+          rowSum = 0,
+          SlashSum = 0,
+          BackSlashSum = 0;
 
+        for (let i = 0; i < n; i++) {
+          if (rowSum > rowMax) {
+            rowMax = rowSum;
+            rowSum = 0;
+          }
+          if (columnSum > columnMax) {
+            columnMax = columnSum;
+            columnSum = 0;
+          }
+          SlashSum += arr[i][i];
+          BackSlashSum += arr[n - i - 1][i];
+          for (let j = 0; j < n; j++) {
+            rowSum += arr[i][j];
+            columnSum += arr[j][i];
+          }
+        }
+        console.log(rowMax, columnMax, SlashSum, BackSlashSum);
+        answer = Math.max(rowMax, columnMax, SlashSum, BackSlashSum);
         return answer;
       }
 
