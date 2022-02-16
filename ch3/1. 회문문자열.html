@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      /* 
+      해당 문제에서 대소문자가 구별이 되지 않기에 소문자로 통일한 뒤
+      arr 변수에는 split 메소드로 배열로 변환해주고,
+      backArr 변수에는 split 와 reverse 메소드를 활용해 배열을 뒤집어 주었다.
+      그 후 for문으로 해당 변수의 인덱스들이 일치하지 않으면 answer에 NO값을 할당해주고
+      일치한다면 그대로 YES return 된다
+      */
+      function solution(s) {
+        let answer = "YES";
+        let arr = s.toLowerCase().split("");
+        let backArr = s.toLowerCase().split("").reverse();
+        for (let i = 0; i < s.length; i++) {
+          if (arr[i] !== backArr[i]) answer = "NO";
+        }
+        return answer;
+      }
+
+      let str1 = "goooG";
+      console.log(solution(str1));
+    </script>
+  </body>
+</html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "YES";
+        s = s.toLowerCase();
+        let len = s.length;
+        for (let i = 0; i < len; i++) {
+          if (s[i] !== s[len - i - 1]) return "NO";
+        }
+        return answer;
+      }
+
+      let str2 = "gooG";
+      console.log(solution(str2));
+    </script>
+  </body>
+</html>
