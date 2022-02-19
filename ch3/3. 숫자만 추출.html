@@ -4,13 +4,34 @@
     <title>출력결과</title>
   </head>
   <body>
+    <!-- 
+    방법1. 정규 표현식
+    1) mathch 메소드와 정규 표현식으로 0~9 추출한다.
+    2) 추출된 배열은 다시 join으로 문자열로 바꿔주고 
+    3) 그다음 Nubmer()로 숫자로 변환해준다.
+    방법2. for of,isNaN
+    1) 반복문에서 ifNaN(i)값이 true이면 answer에 추가
+    2) 추가된 값을 parseInt(answer) 숫자로 변환함
+     -->
     <script>
-      function solution(str) {
-        let answer;
+      function solution(str1) {
+        return Number(str1.match(/[0-9]/g).join(""));
       }
 
-      let str = "g0en2T0s8eSoft";
-      console.log(solution(str));
+      let str1 = "g0en2T0s8eSoft";
+      console.log(solution(str1));
+    </script>
+    <script>
+      function solution(str2) {
+        let answer = "";
+        for (let x of str2) {
+          if (!isNaN(x)) answer += x;
+        }
+        return parseInt(answer);
+      }
+
+      let str2 = "g0en2T0s8eSoft";
+      console.log(solution(str2));
     </script>
   </body>
 </html>
