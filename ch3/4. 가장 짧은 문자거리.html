@@ -4,9 +4,35 @@
     <title>출력결과</title>
   </head>
   <body>
+    <!-- 
+      1. 정방향 for문으로 문자 e를 탐색하여 e가 있으면 0을 주고 없다면 1씩 증가하여 answer에 담아준다.
+      2. 이번에는 역방향의 for문으로 문자 e를 탐색하여 e가 있으면 0을 주고 없다면 1씩 증가한다.
+      3. 그리고 answer[i]와 backTemp의 값을 비교해서 backTemp가 더 작다면 answer[i]를 
+         backTemp로 할당해준다.
+     -->
     <script>
       function solution(s, t) {
-        let answer;
+        let answer = [];
+        let len = s.length;
+        let temp = 1000;
+        for (let i = 0; i < len; i++) {
+          if (s[i] === t) {
+            temp = 0;
+            answer.push(temp);
+          } else {
+            temp++;
+            answer.push(temp);
+          }
+        }
+
+        for (let i = len - 1; i >= 0; i--) {
+          if (s[i] === t) temp = 0;
+          else {
+            temp++;
+            answer[i] = Math.min(answer[i], temp);
+          }
+        }
+        return answer;
       }
 
       let str = "teachermode";
