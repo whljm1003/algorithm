@@ -5,11 +5,24 @@
   </head>
   <body>
     <script>
+      // 반복문을 돌리고, 각 요소마다 reverse를 준다.
+      // 그 다음 소수인지 확인하고 소수라면 answer에 담아준다.
+      // 단, 앞에 수가 0 이라면 삭제 시켜줘야 됨 (number로 만들어주면 사라짐)
+      function isPrime(num) {
+        if (num === 1) return false;
+        for (let i = 2; i <= Math.floor(Math.sqrt(num)); i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
       function solution(arr1) {
-        let answer = [];
+        const answer = [];
+        for (let x of arr1) {
+          const res = parseInt(x.toString().split("").reverse().join(""));
+          if (isPrime(res)) answer.push(res);
+        }
         return answer;
       }
-
       let arr1 = [32, 55, 62, 20, 250, 370, 200, 30, 100];
       console.log(solution(arr1));
     </script>
@@ -23,8 +36,25 @@
   </head>
   <body>
     <script>
-      function solution(arr2) {
-        let answer = [];
+      function isPrime(num) {
+        if (num === 1) return false;
+        for (let i = 2; i <= Math.floor(Math.sqrt(num)); i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
+      function solution(arr1) {
+        const answer = [];
+        for (let x of arr1) {
+          let res = 0;
+          // 숫자 뒤집기
+          while (x) {
+            let t = x % 10;
+            res = res * 10 + t;
+            x = parseInt(x / 10);
+          }
+          if (isPrime(res)) answer.push(res);
+        }
         return answer;
       }
 
