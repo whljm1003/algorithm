@@ -10,7 +10,6 @@
         let n = product.length;
         // 총합으로 오름차순 정렬
         product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
-        console.log(product);
         // 모든 상품에 할인을 적용해봄
         for (let i = 0; i < n; i++) {
           let money = m - (product[i][0] / 2 + product[i][1]);

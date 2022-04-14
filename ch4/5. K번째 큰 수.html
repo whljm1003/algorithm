@@ -7,7 +7,19 @@
     <script>
       function solution(n, k, card) {
         let answer;
-
+        // 중복을 제거하기 위한 set객체 생성.
+        let tmp = new Set();
+        for (let i = 0; i < n; i++) {
+          for (let j = i + 1; j < n; j++) {
+            for (let k = j + 1; k < n; k++) {
+              // 중복 제거된 모든 경우의 수를 tmp를 담아준다.
+              tmp.add(card[i] + card[j] + card[k]);
+            }
+          }
+        }
+        // 모든 경우의 수를 담은 객체를 배열로 바꿔주고 정렬해준다.
+        let sortedArr = Array.from(tmp).sort((a, b) => b - a);
+        answer = sortedArr[k - 1];
         return answer;
       }
 
