@@ -6,7 +6,22 @@
   <body>
     <script>
       function solution(m, arr) {
-        let answer;
+        let answer = 0,
+          sum = 0,
+          lt = 0;
+        // rt를 1씩 증가해서 sum의 값이 6이 되면 answer++;
+        // sum 6이랑 같거나 크면 lt값을 빼고 증가시켜준다.
+        // 그 과정에서 sum 6이 된다면 answer++;
+        for (let rt = 0; rt < arr.length; rt++) {
+          sum += arr[rt];
+          if (sum === m) answer++;
+          while (sum >= m) {
+            sum -= arr[lt++];
+            if (sum === m) {
+              answer++;
+            }
+          }
+        }
 
         return answer;
       }
