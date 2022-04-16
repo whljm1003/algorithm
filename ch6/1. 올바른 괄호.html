@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "YES";
+        let stack = [];
+        // 자료구조 stack 활용해서 문제풀기
+        // 반복문으로 x가 "("라면 push ")"라면 pop을 해준다
+        for (let x of s) {
+          if (x === "(") {
+            stack.push(x);
+          } else {
+            if (stack.length === 0) return "NO";
+            stack.pop();
+          }
+        }
+        if (stack.length !== 0) answer = "NO";
+        return answer;
+      }
+      // let a = "(())()";
+      // let a = "(()(()))(()";
+      let a = "()())";
+      console.log(solution(a));
+    </script>
+  </body>
+</html>
