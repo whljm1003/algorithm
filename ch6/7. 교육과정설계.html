@@ -6,13 +6,24 @@
   <body>
     <script>
       function solution(need, plan) {
+        // need를 큐로 생각함
+        // plan을 돌리면서 큐에 요소가 포함되어 있는지 확인한 후
+        // 포함 되어있다면 큐의 제일 앞 요소를 빼주고 빼낸 녀석과 비교
+        // 순서가 맞다면 일치 틀리다면 리턴 "NO";
         let answer = "YES";
+        let cueue = need.split("");
 
+        for (let x of plan) {
+          if (cueue.includes(x)) {
+            if (x !== cueue.shift()) return "NO";
+          }
+        }
+        if (cueue.length > 0) return "NO";
         return answer;
       }
 
-      let a = "CBA";
-      let b = "CBDAGE";
+      let a = "CAB";
+      let b = "CADBGE";
       console.log(solution(a, b));
     </script>
   </body>
