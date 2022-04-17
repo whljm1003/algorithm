@@ -7,7 +7,20 @@
     <script>
       function solution(n, k) {
         let answer;
+        // n으로 8개의 배열을 만들어준다.
+        let queue = Array.from({ length: n }, (e, i) => i + 1);
 
+        // queue에 1개라도 있으면 계속 반복해준다.
+        while (queue.length) {
+          // 2번 반복해서 앞에 2요소를 삭제하고 뒤쪽으로 push해준다.
+          for (let i = 1; i < k; i++) queue.push(queue.shift());
+          // 3번째 요소는 삭제만 해준다.
+          queue.shift();
+          // 이렇게해서 queue의 길이가 1이 되면 마지막 녀석을 삭제하면서 answer에 담아준다.
+          if (queue.length === 1) answer = queue.shift();
+        }
+
+        console.log(queue);
         return answer;
       }
 
