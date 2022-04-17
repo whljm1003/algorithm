@@ -7,7 +7,23 @@
     <script>
       function solution(s) {
         let answer;
+        let stack = [];
 
+        // 숫자라면 스택에 담아주고 계산식이라면 스택에서 2개를 빼고
+        // 연산 후 다시 넣어준다.
+
+        for (let e of s) {
+          if (!isNaN(e)) stack.push(Number(e));
+          else {
+            let rt = stack.pop();
+            let lt = stack.pop();
+            if (e === "+") stack.push(lt + rt);
+            else if (e === "-") stack.push(lt - rt);
+            else if (e === "*") stack.push(lt * rt);
+            else if (e === "/") stack.push(lt / rt);
+          }
+        }
+        answer = stack[0];
         return answer;
       }
 
