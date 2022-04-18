@@ -6,8 +6,21 @@
   <body>
     <script>
       function solution(n) {
-        let answer = "";
-
+        let answer;
+        function DFS(n) {
+          if (n > 7) return;
+          else {
+            // 전위순회
+            // console.log(n);
+            DFS(n * 2);
+            // 중위순회
+            // console.log(n);
+            DFS(n * 2 + 1);
+            // 후위순회
+            // console.log(n);
+          }
+        }
+        DFS(n);
         return answer;
       }
 
