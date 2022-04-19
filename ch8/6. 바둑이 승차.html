@@ -6,9 +6,28 @@
   <body>
     <script>
       function solution(c, arr) {
-        let answer;
+        let answer = [];
+        let n = arr.length;
+        let ch = Array.from({ length: n }, () => 0);
 
-        return answer;
+        function DFS(v) {
+          if (v === n) {
+            let tmp = 0;
+            for (let i = 0; i <= n; i++) {
+              if (ch[i] === 1) tmp += Number(arr[i]);
+            }
+            if (tmp > 0) answer.push(tmp);
+          } else {
+            ch[v] = 1;
+            DFS(v + 1);
+            ch[v] = 0;
+            DFS(v + 1);
+          }
+        }
+        DFS(0);
+
+        answer.sort((a, b) => b - a);
+        for (let x of answer) if (x < c) return x;
       }
 
       let arr = [81, 58, 42, 33, 61];
