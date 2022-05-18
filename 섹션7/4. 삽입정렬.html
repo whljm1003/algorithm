@@ -7,7 +7,16 @@
     <script>
       function solution(arr) {
         let answer = arr;
-
+        for (let i = 1; i < arr.length; i++) {
+          let target = i - 1;
+          while (target >= 0) {
+            if (arr[i] < arr[target]) {
+              [arr[i], arr[target]] = [arr[target], arr[i]];
+              i = target;
+            }
+            target--;
+          }
+        }
         return answer;
       }
 
@@ -25,7 +34,16 @@
   <body>
     <script>
       function solution(arr) {
-        let answer = [];
+        let answer = arr;
+        for (let i = 1; i < arr.length; i++) {
+          let tmp = arr[i],
+            j;
+          for (j = i - 1; j >= 0; j--) {
+            if (tmp < arr[j]) arr[j + 1] = arr[j];
+            else break;
+          }
+          arr[j + 1] = tmp;
+        }
 
         return answer;
       }
