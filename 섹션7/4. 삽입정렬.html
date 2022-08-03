@@ -35,11 +35,16 @@
     <script>
       function solution(arr) {
         let answer = arr;
+        // i는 1부터 끝까지 반복해준다
         for (let i = 1; i < arr.length; i++) {
           let tmp = arr[i],
             j;
+          // j는 i-1부터 0까지 반복한다.
           for (j = i - 1; j >= 0; j--) {
-            if (tmp < arr[j]) arr[j + 1] = arr[j];
+            // 만약 j가 tmp(처음 i)보다 크면 값을 바꿔준다.
+            if (arr[j] > tmp) arr[j + 1] = arr[j];
+            // break를 해줌으로써 j가 0까지 돌아가는 것을 막아줌
+            // 막아주지 않으면 -1까지 돌아가면서 밑에 코드가 원하는 대로 작동하지 않는다. (arr[j+1] = tmp)
             else break;
           }
           arr[j + 1] = tmp;
