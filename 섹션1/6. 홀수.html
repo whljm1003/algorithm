@@ -5,21 +5,18 @@
   </head>
   <body>
     <script>
-      // 1. arr에서 홀수인 자연수 구하기
-      // 2. 홀수들의 합 구하기
-      // 3. 홀수들의 최소값 구하기
       function solution(arr) {
-        let oddSum = 0;
-        let minimum = Number.MAX_SAFE_INTEGER;
-        for (let i = 0; i < arr.length; i++) {
-          if (arr[i] % 2 === 1) {
-            oddSum += arr[i];
-            if (arr[i] < minimum) {
-              minimum = arr[i];
-            }
+        let answer = [];
+        let sum = 0,
+          min = Number.MAX_SAFE_INTEGER;
+
+        for (let num of arr) {
+          if (num % 2 !== 0) {
+            sum += num;
+            if (num < min) min = num;
           }
         }
-        answer = [oddSum, minimum];
+        answer = [sum, min];
         return answer;
       }
 
