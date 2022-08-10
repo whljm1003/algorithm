@@ -6,37 +6,11 @@
   <body>
     <script>
       function solution(s) {
-        let answer = s.replace(/A/gm, "#");
-        return answer;
+        return s.replaceAll("A", "#");
       }
 
       let str1 = "BANANA";
       console.log(solution(str1));
-    </script>
-  </body>
-</html>
-
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>출력결과</title>
-  </head>
-  <body>
-    <script>
-      function solution(s) {
-        let answer = "";
-        s.split("").map((e) => {
-          if (e === "A") {
-            answer += "#";
-          } else {
-            answer += e;
-          }
-        });
-        return answer;
-      }
-
-      let str2 = "BANANA";
-      console.log(solution(str2));
     </script>
   </body>
 </html>
