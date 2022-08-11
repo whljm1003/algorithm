@@ -6,41 +6,13 @@
   <body>
     <script>
       function solution1(s1, t1) {
-        let answer = 0;
-
-        /*       
-        split로 찾기
-        answer = s1.split(t1).length - 1; 
-        */
-        // for of 문으로 찾기
-        for (let i of s1) {
-          if (i === t1) answer++;
-        }
-
+        const regex = new RegExp(t1, "gm");
+        const answer = s1.match(regex).length;
         return answer;
       }
 
       let str1 = "COMPUTERPROGRAMMING";
       console.log(solution1(str1, "R"));
-    </script>
-  </body>
-</html>
-
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>출력결과</title>
-  </head>
-  <body>
-    <script>
-      function solution2(s2, t2) {
-        // 정규 표현식으로 찾기
-        let target = new RegExp(t2, "gm");
-        return s2.match(target).length;
-      }
-
-      let str2 = "COMPUTERPROGRAMMING";
-      console.log(solution2(str2, "C"));
     </script>
   </body>
 </html>
